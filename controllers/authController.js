@@ -52,7 +52,7 @@ module.exports.login = async (req, res, next) => {
       .cookie(
         "access_token",
         token,
-        { httpOnly: true, domain: process.env.FRONTEND_LINK },
+        { httpOnly: true, sameSite: 'none' },
         {
           expires: new Date(Date.now() + 25892000000), // set expiry of 1month
         }
