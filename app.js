@@ -21,7 +21,7 @@ const corsOptions = {
   origin: `${process.env.FRONTEND_LINK}`,
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
-  Headers: true,
+  exposedHeaders: 'Set-Cookie',
 };
 app.use(cors(corsOptions));
 
