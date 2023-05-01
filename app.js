@@ -18,7 +18,7 @@ const errorMiddleware = require("./utils/errorMiddleware.js");
 
 const app = express();
 const corsOptions = {
-  origin: '*',
+  origin: `${process.env.FRONTEND_LINK}`,
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
   Headers: true,
