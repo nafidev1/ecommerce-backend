@@ -52,7 +52,7 @@ module.exports.login = async (req, res, next) => {
       .cookie(
         "access_token",
         token,
-        { httpOnly: true, sameSite: 'none', domain: process.env.RENDER_EXTERNAL_HOSTNAME },
+        { httpOnly: true, sameSite: 'none', domain: 'ecommerce-app-0nel.onrender.com' },
         {
           expires: new Date(Date.now() + 25892000000), // set expiry of 1month
         }
