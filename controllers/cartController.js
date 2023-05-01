@@ -95,7 +95,7 @@ module.exports.getCartItems = async (req, res, next) => {
       path: "categories.category",
       model: "Category",
     });
-    console.log(cart);
+    console.log(cart?.categories);
     res.status(200).json(cart?.categories || []);
   } catch (error) {
     next(error);
