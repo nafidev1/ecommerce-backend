@@ -52,7 +52,7 @@ module.exports.login = async (req, res, next) => {
       .cookie(
         "access_token",
         token,
-        { httpOnly: true, sameSite: 'none', domain: 'main--fluffy-rabanadas-ee6b43.netlify.app' },
+        { httpOnly: true, sameSite: 'none', domain: '.main--fluffy-rabanadas-ee6b43.netlify.app' },
         {
           expires: new Date(Date.now() + 25892000000), // set expiry of 1month
         }
