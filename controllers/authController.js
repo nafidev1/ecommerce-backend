@@ -23,7 +23,7 @@ module.exports.signup = async (req, res, next) => {
       .cookie(
         "access_token",
         token,
-        { httpOnly: true, sameSite: 'none', secure: true, domain: process.env.DOMAIN },
+        { httpOnly: true, sameSite: 'none', secure: true, domain: 'ecommerce-app-0nel.onrender.com' },
         {
           expires: new Date(Date.now() + 25892000000), // set expiry of 1month
         }
@@ -52,7 +52,7 @@ module.exports.login = async (req, res, next) => {
       .cookie(
         "access_token",
         token,
-        { httpOnly: true, sameSite: 'none', secure: true, domain: process.env.DOMAIN },
+        { httpOnly: true, sameSite: 'none', secure: true, domain: 'ecommerce-app-0nel.onrender.com' },
         {
           expires: new Date(Date.now() + 25892000000), // set expiry of 1month
         }
