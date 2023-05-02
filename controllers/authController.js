@@ -3,6 +3,8 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { createError } = require("../utils/createError");
 
+const cookieParams = { httpOnly: true, sameSite: "none", secure: true };
+
 module.exports.signup = async (req, res, next) => {
   try {
     const salt = bcrypt.genSaltSync(10);
@@ -23,7 +25,7 @@ module.exports.signup = async (req, res, next) => {
       .cookie(
         "access_token",
         token,
-        { httpOnly: true, sameSite: "none", secure: true },
+        cookieParams,
         {
           expires: new Date(Date.now() + 25892000000), // set expiry of 1month
         }
@@ -52,7 +54,7 @@ module.exports.login = async (req, res, next) => {
       .cookie(
         "access_token",
         token,
-        { httpOnly: true, sameSite: "none", secure: true },
+        cookieParams,
         {
           expires: new Date(Date.now() + 25892000000), // set expiry of 1month
         }
@@ -66,7 +68,7 @@ module.exports.login = async (req, res, next) => {
 
 module.exports.logout = async (req, res, next) => {
   try {
-    res.clearCookie("access_token");
+    res.clearCookie("access_token", cookieParams);
     res.status(200).json("User Logged out");
   } catch (error) {
     next(error);
