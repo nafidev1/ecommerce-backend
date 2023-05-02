@@ -23,7 +23,7 @@ module.exports.signup = async (req, res, next) => {
       .cookie(
         "access_token",
         token,
-        { httpOnly: true, sameSite: "strict", secure: true },
+        { httpOnly: true, sameSite: "none", secure: true },
         {
           expires: new Date(Date.now() + 25892000000), // set expiry of 1month
         }
@@ -52,7 +52,7 @@ module.exports.login = async (req, res, next) => {
       .cookie(
         "access_token",
         token,
-        { httpOnly: true, sameSite: "strict", secure: true },
+        { httpOnly: true, sameSite: "none", secure: true },
         {
           expires: new Date(Date.now() + 25892000000), // set expiry of 1month
         }
